@@ -1,8 +1,12 @@
 # AI in Cyber Alliance — website
 
 The public website for the **AI in Cyber Alliance** — a community-led, vendor-neutral
-group running technical meet-ups across the US on AI, cybersecurity, Cloud Native, and
-open source. Two 20-minute talks, real Q&A, no product pitches.
+group running technical meet-ups across the US on the use of AI in Cybersecurity.
+While open source is preferred it is not required. 
+
+Practioners, researchers and technologists all welcome.  
+
+Our typical format is two 20-minute talks. These are not product pitches.
 
 🔗 Calendar: https://luma.com/calendar/cal-PWZSiCpJoPE914l
 🔗 LinkedIn: https://www.linkedin.com/groups/17875019/
@@ -10,7 +14,7 @@ open source. Two 20-minute talks, real Q&A, no product pitches.
 ## What's in this repo
 
 ```
-index.html            The entire website — one plain, hand-editable HTML file
+index.html            The entire website — hand-editable HTML file
 blog/                 Blog posts (Markdown)
 CODE_OF_CONDUCT.md    Community Code of Conduct
 CONTRIBUTING.md       How to contribute (fork → edit → PR)
@@ -19,9 +23,9 @@ LICENSE-CONTENT.md    CC BY 4.0 (blog, docs, recordings)
 README.md             This file
 ```
 
-That's it. `index.html` is **plain HTML with one `<style>` block** and **no build
-step, no framework, and no external dependencies** (fonts load from Google Fonts).
-Open it in any browser to preview; serve the folder to host it.
+That's it. `index.html` is plain HTML with one `<style>` block and no build
+step, no framework, and no external dependencies. Fonts load from Google Font.
+Open it in browser to preview; serve folder to host.
 
 ## Editing the site
 
@@ -31,7 +35,7 @@ for `EDIT:` to find every spot that needs a real value.
 
 - **Colors & fonts** — change the CSS variables in the `:root` block at the top of the
   `<style>` section (e.g. `--acc` is the brand green). One edit re-themes the whole page.
-- **Speaker / host / member links** — search for `href="#"` and replace with your
+- **Speaker / host / member links** — search for `href="#"` and replace with 
   Google Form URL (three spots in the "Get involved" section, plus "Propose a talk"
   in the nav).
 - **Code of Conduct link** — the footer links `CODE_OF_CONDUCT.md`; adjust if you move it.
