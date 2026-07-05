@@ -11,8 +11,10 @@ open source. Two 20-minute talks, real Q&A, no product pitches.
 
 ```
 index.html            The entire website — one self-contained file (fonts + code inlined)
+blog/                 Blog posts (Markdown)
 CODE_OF_CONDUCT.md    Community Code of Conduct
-LICENSE               MIT
+LICENSE               Apache License 2.0 (code)
+LICENSE-CONTENT.md    CC BY 4.0 (blog, docs, recordings)
 README.md             This file
 ```
 
@@ -45,4 +47,5 @@ Pages, Netlify, S3…). Point it at this folder and serve `index.html`.
 
 ## License
 
-MIT — see [LICENSE](LICENSE). Content and code are open source; contributions welcome.
+Dual-licensed: **code** under the [Apache License 2.0](LICENSE), **content** (blog,
+docs, talk recordings) under [CC BY 4.0](LICENSE-CONTENT.md). Contributions welcome.
