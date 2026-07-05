@@ -4,6 +4,7 @@ The public website for the **AI in Cyber Alliance** — a community-led, vendor-
 group running technical meet-ups across the US on AI, cybersecurity, Cloud Native, and
 open source. Two 20-minute talks, real Q&A, no product pitches.
 
+🔗 Site: https://ai-cyber-alliance.org/ 
 🔗 Calendar: https://luma.com/calendar/cal-PWZSiCpJoPE914l
 🔗 LinkedIn: https://www.linkedin.com/groups/17875019/
 
