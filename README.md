@@ -19,9 +19,9 @@ LICENSE-CONTENT.md    CC BY 4.0 (blog, docs, recordings)
 README.md             This file
 ```
 
-That's it. `index.html` is **plain HTML with one `<style>` block** and **no build
-step, no framework, and no external dependencies** (fonts load from Google Fonts).
-Open it in any browser to preview; serve the folder to host it.
+That's it. `index.html` is plain HTML with one `<style>` block and no build
+step, no framework, and no external dependencies.
+Open it in any browser to preview; serve to host.
 
 ## Editing the site
 
@@ -29,27 +29,22 @@ Everything is in `index.html` — readable, commented, and safe to edit by hand.
 compile step: change it, open it in a browser to check, commit, done. Search the file
 for `EDIT:` to find every spot that needs a real value.
 
-- **Colors & fonts** — change the CSS variables in the `:root` block at the top of the
+- Colors & fonts — change the CSS variables in the `:root` block at the top of the
   `<style>` section (e.g. `--acc` is the brand green). One edit re-themes the whole page.
-- **Speaker / host / member links** — search for `href="#"` and replace with your
+- Speaker / host / member links — search for `href="#"` and replace with 
   Google Form URL (three spots in the "Get involved" section, plus "Propose a talk"
   in the nav).
-- **Code of Conduct link** — the footer links `CODE_OF_CONDUCT.md`; adjust if you move it.
-- **Talks** — the "Watch past talks" grid has three placeholder cards; set each `href`
+- Code of Conduct link — the footer links `CODE_OF_CONDUCT.md`; adjust if you move it.
+- Talks — the "Watch past talks" grid has three placeholder cards; set each `href`
   to a YouTube URL and edit the title/meta. Duplicate a `<a class="talk">` block to add more.
-- **Members / hosts / logos** — text wordmarks today; drop in real logo `<img>`s.
-- **Hero photo** — replace the `[ event photo / community shot ]` placeholder block.
+- Members / hosts / logos — text wordmarks today; drop in real logo `<img>`s.
+- Hero photo — replace the `[ event photo / community shot ]` placeholder block.
 
 ## Contributing
 
 This site is meant to be maintained by the community. Fork the repo, edit `index.html`
 (or add a post under `blog/`), and open a pull request. Because it's a single static
 file, anyone comfortable with basic HTML can contribute — no tooling required.
-
-## Hosting
-
-Any static host works (Cloudflare Pages, Cloudflare Workers static assets, GitHub
-Pages, Netlify, S3…). Point it at this folder and serve `index.html`.
 
 ## License
 
