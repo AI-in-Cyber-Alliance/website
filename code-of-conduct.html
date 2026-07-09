@@ -7,114 +7,115 @@
 <meta name="description" content="The AI Cyber Alliance Code of Conduct — a community-first, welcoming, vendor-neutral space for technical talks on AI, security, and open source.">
 
 <!--
-  ┌─────────────────────────────────────────────────────────────────────┐
-  │  AI Cyber Alliance — Code of Conduct sub-page                         │
-  │  Plain HTML, no build step. Shares the look & tokens of index.html.   │
-  │  If you edit the policy text, keep CODE_OF_CONDUCT.md in sync — that   │
-  │  Markdown copy is what GitHub shows in the repo.                       │
-  └─────────────────────────────────────────────────────────────────────┘
+  AI Cyber Alliance — Code of Conduct sub-page. Shares the tokens of index.html.
+  If you edit the policy text, keep CODE_OF_CONDUCT.md in sync (GitHub shows that copy).
 -->
+
+<link rel="icon" type="image/svg+xml" href="assets/aca-signet-pink.svg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500;600;700&family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 /* ============ BRAND TOKENS — kept in sync with index.html ============ */
 :root{
-  --acc:#364D15;              /* brand green (from Vigil) */
-  --acc-soft:rgba(54,77,21,.10);
-  --acc-line:rgba(54,77,21,.28);
-  --bg:#F1EBDD;              /* page background (warm tan) */
-  --bg-alt:#E9E1CF;         /* alternating section background */
-  --card:#FBF8F0;           /* card surface */
-  --ink:#16171C;            /* primary text */
-  --ink-2:#3a3730;          /* body text */
-  --ink-3:#6a6558;          /* muted text */
-  --no:#9a3b2a;             /* "don't" marker (brick, complements green/tan) */
-  --darker:#101115;         /* footer */
-  --font-display:'Space Grotesk',sans-serif;
-  --font-body:'IBM Plex Sans',system-ui,sans-serif;
-  --font-mono:'IBM Plex Mono',monospace;
+  --charcoal:#2B292A;
+  --offwhite:#EFEFEF;
+  --blue:#839CF8;             /* Cloud Blue — primary */
+  --pink:#EAA4A4;             /* Pulse Pink — secondary */
+  --magenta:#ED58F5;          /* Magenta — highlight, sparing */
+
+  --bg:var(--charcoal);
+  --ink:var(--offwhite);
+  --ink-2:rgba(239,239,239,.72);
+  --ink-3:rgba(239,239,239,.52);
+  --card:#343233;
+  --line:rgba(239,239,239,.14);
+  --line-2:rgba(239,239,239,.26);
+  --nav-bg:rgba(43,41,42,.86);
+  --logo-filter:brightness(0) invert(1);
+
+  --font-display:'Atkinson Hyperlegible Next',sans-serif;
+  --font-body:'Atkinson Hyperlegible Mono',ui-monospace,monospace;
+  --font-mono:'Atkinson Hyperlegible Mono',ui-monospace,monospace;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased}
-::selection{background:var(--acc);color:#fff}
+::selection{background:var(--magenta);color:var(--charcoal)}
 a{color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:3px}
 .wrap{max-width:1180px;margin:0 auto;padding-left:32px;padding-right:32px}
 
 /* ---- typography ---- */
-.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-bottom:14px}
-h1{font-family:var(--font-display);font-weight:600;font-size:52px;line-height:1.05;letter-spacing:-.025em;margin:0 0 22px}
-.lead{font-size:18.5px;line-height:1.6;color:var(--ink-2);max-width:620px}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);margin-bottom:14px}
+h1{font-family:var(--font-display);font-weight:600;font-size:52px;line-height:1.05;letter-spacing:-.02em;margin:0 0 22px}
+.lead{font-size:18px;line-height:1.6;color:var(--ink-2);max-width:620px}
 
 /* ---- nav (matches index.html) ---- */
-.nav{position:sticky;top:0;z-index:20;background:rgba(241,235,221,.88);backdrop-filter:blur(10px);border-bottom:1px solid rgba(22,23,28,.1)}
+.nav{position:sticky;top:0;z-index:20;background:var(--nav-bg);backdrop-filter:blur(10px);border-bottom:1px solid rgba(239,239,239,.12)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:16px;padding-bottom:16px}
-.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
-.brand .mark{width:26px;height:26px;border-radius:6px;background:var(--acc);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-mono);font-weight:600;font-size:13px}
-.brand .name{font-weight:700;font-size:15.5px;letter-spacing:-.01em;color:var(--ink)}
-.nav-links{display:flex;align-items:center;gap:26px;font-size:14px;color:#4d4a42}
-.nav-links a{text-decoration:none;color:#4d4a42}
-.nav-links a:hover{color:var(--acc)}
+.brand{display:flex;align-items:center;text-decoration:none}
+.brand .logo-img{height:40px;width:auto;display:block;filter:var(--logo-filter)}
+.nav-links{display:flex;align-items:center;gap:26px;font-size:14px}
+.nav-links a{text-decoration:none;color:var(--offwhite)}
+.nav-links a:hover{color:var(--magenta)}
 .btn{border-radius:9px;text-decoration:none;font-weight:600;font-size:15px;padding:14px 26px;display:inline-block}
 .btn-sm{padding:9px 18px;font-weight:500;font-size:14px;border-radius:8px}
-.btn-primary{background:var(--acc);color:#fff}
-.btn-primary:hover{background:var(--ink)}
+.btn-primary{background:var(--blue);color:var(--charcoal)}
+.btn-primary:hover{box-shadow:0 6px 22px -6px rgba(237,88,245,.62)}
 
 /* ---- doc header ---- */
-.doc-hero{background:var(--bg-alt);border-bottom:1px solid rgba(22,23,28,.1)}
+.doc-hero{background:#232122;border-bottom:1px solid var(--line)}
 .doc-hero .wrap{padding-top:56px;padding-bottom:56px}
 .back{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:12.5px;color:var(--ink-3);text-decoration:none;margin-bottom:26px}
-.back:hover{color:var(--acc)}
+.back:hover{color:var(--magenta)}
 .toc{margin-top:30px}
 .toc .label{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-3);margin-right:4px}
-
-/* reused chip style for the on-page nav */
 .chips{display:flex;flex-wrap:wrap;gap:9px;align-items:center}
-.chip{padding:8px 15px;background:var(--card);border:1px solid rgba(22,23,28,.14);border-radius:20px;font-size:13.5px;color:#2c2820;text-decoration:none}
-.chip:hover{border-color:var(--acc);color:var(--acc)}
+.chip{padding:8px 15px;background:var(--card);border:1px solid var(--line);border-radius:20px;font-size:13.5px;color:var(--ink-2);text-decoration:none}
+.chip:hover{border-color:var(--blue);color:var(--offwhite)}
 
 /* ---- doc body ---- */
 .doc{max-width:760px;padding-top:64px;padding-bottom:80px}
 .doc section{scroll-margin-top:88px}
 .doc section + section{margin-top:44px}
 .doc h2{font-family:var(--font-display);font-weight:600;font-size:26px;line-height:1.15;letter-spacing:-.02em;color:var(--ink);margin:0 0 18px;display:flex;align-items:center;gap:12px}
-.doc h2::before{content:"";width:9px;height:9px;border-radius:2px;background:var(--acc);flex:0 0 auto}
-.doc p{font-size:17px;line-height:1.75;color:var(--ink-2);margin:0 0 18px}
-.doc a{color:var(--acc);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
-.doc a:hover{text-decoration-thickness:2px}
+.doc h2::before{content:"";width:9px;height:9px;border-radius:2px;background:var(--blue);flex:0 0 auto}   /* cloud blue marker */
+.doc p{font-size:16.5px;line-height:1.75;color:var(--ink-2);margin:0 0 18px}
+.doc a{color:var(--blue);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.doc a:hover{color:var(--magenta)}
 .doc strong{color:var(--ink)}
 
 /* styled lists with markers */
 .doc ul{list-style:none;margin:0;padding:0}
-.doc ul li{position:relative;padding-left:30px;margin-bottom:13px;font-size:16.5px;line-height:1.65;color:var(--ink-2)}
+.doc ul li{position:relative;padding-left:30px;margin-bottom:13px;font-size:16px;line-height:1.65;color:var(--ink-2)}
 .doc ul li::before{position:absolute;left:0;top:0;font-family:var(--font-mono);font-weight:600}
-.list-do li::before{content:"\2713";color:var(--acc)}      /* ✓ */
-.list-dont li::before{content:"\2715";color:var(--no)}     /* ✕ */
+.list-do li::before{content:"\2713";color:var(--blue)}      /* ✓ cloud blue */
+.list-dont li::before{content:"\2715";color:var(--magenta)} /* ✕ magenta emphasis */
 
 /* the short-version highlight */
-.callout{display:flex;gap:16px;align-items:flex-start;padding:26px 28px;background:var(--card);border:1px solid rgba(22,23,28,.12);border-radius:14px;border-left:3px solid var(--acc)}
-.callout .q{font-family:var(--font-display);font-size:32px;line-height:1;color:var(--acc-line);flex:0 0 auto;margin-top:-2px}
+.callout{display:flex;gap:16px;align-items:flex-start;padding:26px 28px;background:var(--card);border:1px solid var(--line);border-radius:14px;border-left:3px solid var(--pink)}   /* pink accent */
+.callout .q{font-family:var(--font-display);font-size:32px;line-height:1;color:var(--pink);flex:0 0 auto;margin-top:-2px}
 .callout p{margin:0;font-size:18px;line-height:1.6;color:var(--ink)}
 
-/* card wrapper for the "unacceptable" list to set it apart */
-.panel{padding:24px 26px;background:var(--card);border:1px solid rgba(22,23,28,.12);border-radius:14px}
-.panel.no{border-left:3px solid var(--no)}
+/* card wrapper for the "unacceptable" list */
+.panel{padding:24px 26px;background:var(--card);border:1px solid var(--line);border-radius:14px}
+.panel.no{border-left:3px solid var(--magenta)}   /* magenta caution accent */
 .panel ul li:last-child{margin-bottom:0}
 
-.updated{margin-top:56px;padding-top:22px;border-top:1px solid rgba(22,23,28,.12);font-family:var(--font-mono);font-size:12.5px;color:var(--ink-3)}
+.updated{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);font-family:var(--font-mono);font-size:12.5px;color:var(--ink-3)}
 
 /* ---- footer (matches index.html) ---- */
-.footer{background:var(--darker);color:#a8a396}
+.footer{background:#211F20;color:var(--ink-2)}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;padding-top:38px;padding-bottom:38px}
 .footer .fbrand{display:flex;align-items:center;gap:11px}
-.footer .fbrand .mark{width:22px;height:22px;border-radius:5px;background:var(--acc);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-mono);font-weight:600;font-size:11px}
-.footer .fbrand span{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.04em}
+.footer .fbrand .mark{width:22px;height:22px;border-radius:5px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:var(--charcoal);font-family:var(--font-mono);font-weight:600;font-size:11px}
+.footer .fbrand span{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.04em;color:var(--ink-2)}
 .footer nav{display:flex;gap:22px;font-size:13px;font-family:var(--font-mono)}
-.footer nav a{color:#a8a396;text-decoration:none}
-.footer nav a:hover{color:#fff}
+.footer nav a{color:var(--blue);text-decoration:none}
+.footer nav a:hover{color:var(--magenta)}
 
 /* ---- responsive ---- */
 @media (max-width:860px){
@@ -132,9 +133,8 @@ h1{font-family:var(--font-display);font-weight:600;font-size:52px;line-height:1.
 <!-- ============ NAV ============ -->
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="index.html">
-      <span class="mark">AI</span>
-      <span class="name">AI Cyber Alliance</span>
+    <a class="brand" href="index.html" aria-label="AI Cyber Alliance — home">
+      <img class="logo-img" src="assets/aca-logo-black.png" alt="AI Cyber Alliance">
     </a>
     <nav class="nav-links">
       <a href="index.html#what">About</a>
