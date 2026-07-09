@@ -1,6 +1,6 @@
-# AI in Cyber Alliance — website
+# AI Cyber Alliance — website
 
-The public website for the **AI in Cyber Alliance** — a community-led, vendor-neutral
+The public website for the **AI Cyber Alliance** — a community-led, vendor-neutral
 group running technical meet-ups across the US on AI, cybersecurity, Cloud Native, and
 open source. Two 20-minute talks, real Q&A, no product pitches.
 
