@@ -1,6 +1,6 @@
 # Code of Conduct
 
-The AI in Cyber Alliance is a **community-first** space. We're committed to a friendly,
+The AI Cyber Alliance is a **community-first** space. We're committed to a friendly,
 safe, and welcoming environment for everyone — regardless of experience level,
 background, employer, identity, or affiliation.
 
@@ -32,7 +32,7 @@ We want great talks to reach as many people as possible, while speakers keep cre
 ownership of their work.
 
 - **Speakers retain ownership** of their talk content, slides, and materials.
-- By speaking at an event, speakers grant the AI in Cyber Alliance a **non-exclusive,
+- By speaking at an event, speakers grant the AI Cyber Alliance a **non-exclusive,
   royalty-free license** to record, publish, and share their talk (for example on
   YouTube and this website) so the community can learn from it.
 - Recordings are published under **Creative Commons Attribution (CC BY 4.0)** unless a

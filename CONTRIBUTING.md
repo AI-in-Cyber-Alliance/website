@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping build the AI in Cyber Alliance website! This site is **maintained by
+Thanks for helping build the AI Cyber Alliance website! This site is **maintained by
 the community**, and contributions are welcome from anyone — no special tooling required.
 
 ## What you can contribute
