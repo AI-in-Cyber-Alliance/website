@@ -41,7 +41,7 @@
   --card:#343233;                  /* card surface on dark sections */
   --line:rgba(239,239,239,.14);    /* subtle low-opacity white hairline */
   --line-2:rgba(239,239,239,.26);
-  --eyebrow:var(--pink);           /* section-accent labels */
+  --eyebrow:#F09E9E;               /* section labels — Pulse Pink +10% saturation (ACA's breadcrumb) */
   --link:var(--blue);              /* interactive text */
   --nav-bg:rgba(43,41,42,.86);
   --ph-a:#302f35; --ph-b:#37363f;  /* placeholder graphic (subtle cloud-blue tint) */
@@ -63,7 +63,7 @@
   --card:#FFFFFF;
   --line:rgba(43,41,42,.12);
   --line-2:rgba(43,41,42,.22);
-  --eyebrow:var(--charcoal);       /* accents stay legible on light */
+  --eyebrow:#AD3E3E;               /* breadcrumb stays Pulse Pink — deepened for contrast on off-white */
   --link:#3E50B5;                  /* deepened Cloud Blue for contrast on off-white */
   --ph-a:#E3E3E3; --ph-b:#ECECEC;
 }
@@ -166,7 +166,6 @@ strong{color:var(--ink)}
 
 /* ---- get involved (dark CTA island) ---- */
 .dark-sec{background:#232122;color:var(--ink)}
-.dark-sec .eyebrow{color:var(--pink)}
 .center{text-align:center}
 .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto}
 .icard{padding:32px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:15px;transition:border-color .18s ease}
@@ -332,7 +331,7 @@ strong{color:var(--ink)}
 <!-- ============ HOSTS (light) ============ -->
 <section id="hosts" class="section light">
   <div class="wrap" style="padding-top:66px;padding-bottom:66px">
-    <div class="eyebrow" style="color:var(--ink-3)">With gratitude</div>
+    <div class="eyebrow">With gratitude</div>
     <h2 style="font-size:27px;margin-bottom:28px">Thank you to our hosts</h2>
     <div class="hosts">
       <div class="host"><div class="n">Snowflake</div><div class="r">Host venue</div></div>
