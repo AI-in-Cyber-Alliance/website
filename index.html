@@ -32,6 +32,8 @@
   --blue:#839CF8;             /* Cloud Blue — PRIMARY (buttons, links, nav active, icons) */
   --pink:#EAA4A4;             /* Pulse Pink — SECONDARY (card/section accents, decorative) */
   --magenta:#ED58F5;          /* Magenta — HIGHLIGHT, used sparingly (hover, selected, small details) */
+  --pink-strong:#F09E9E;      /* Pulse Pink +10% sat — labels & accents on dark */
+  --pink-deep:#AD3E3E;        /* Pulse Pink deepened — readable pink on off-white */
 
   /* dark theme (default context) */
   --bg:var(--charcoal);
@@ -41,10 +43,10 @@
   --card:#343233;                  /* card surface on dark sections */
   --line:rgba(239,239,239,.14);    /* subtle low-opacity white hairline */
   --line-2:rgba(239,239,239,.26);
-  --eyebrow:var(--pink);           /* section-accent labels */
+  --eyebrow:var(--pink-strong);    /* section labels — ACA's breadcrumb */
   --link:var(--blue);              /* interactive text */
   --nav-bg:rgba(43,41,42,.86);
-  --ph-a:#302f35; --ph-b:#37363f;  /* placeholder graphic (subtle cloud-blue tint) */
+  --ph-a:#332E30; --ph-b:#3B3437;  /* placeholder graphic (subtle pulse-pink warmth) */
   --shadow:rgba(0,0,0,.5);
   --on-blue:var(--charcoal);       /* text on Cloud Blue fills */
   --logo-filter:brightness(0) invert(1);  /* black logo art -> Off White */
@@ -63,9 +65,9 @@
   --card:#FFFFFF;
   --line:rgba(43,41,42,.12);
   --line-2:rgba(43,41,42,.22);
-  --eyebrow:var(--charcoal);       /* accents stay legible on light */
+  --eyebrow:var(--pink-deep);      /* breadcrumb stays Pulse Pink on off-white */
   --link:#3E50B5;                  /* deepened Cloud Blue for contrast on off-white */
-  --ph-a:#E3E3E3; --ph-b:#ECECEC;
+  --ph-a:#ECE2E2; --ph-b:#F1E9E9;  /* pink-warmed placeholder on light */
 }
 
 *{box-sizing:border-box}
@@ -73,7 +75,7 @@ html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased}
 ::selection{background:var(--magenta);color:var(--charcoal)}   /* selected state = magenta */
 a{color:inherit}
-:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:3px}  /* focus = Cloud Blue */
+:focus-visible{outline:2px solid var(--magenta);outline-offset:3px;border-radius:3px}  /* focus ring = magenta */
 .wrap{max-width:1180px;margin:0 auto;padding-left:32px;padding-right:32px}
 
 /* ---- typography ---- */
@@ -105,13 +107,14 @@ h2{font-family:var(--font-display);font-weight:600;font-size:37px;line-height:1.
 
 /* ---- hero ---- */
 .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:52px;align-items:center;padding-top:82px;padding-bottom:74px}
-.pill{display:inline-flex;align-items:center;gap:9px;padding:7px 14px;background:rgba(131,156,248,.14);border-radius:30px;font-family:var(--font-mono);font-size:11.5px;color:var(--blue);letter-spacing:.06em;margin-bottom:28px}
+.pill{display:inline-flex;align-items:center;gap:9px;padding:7px 14px;background:rgba(234,164,164,.14);border-radius:30px;font-family:var(--font-mono);font-size:11.5px;color:var(--pink);letter-spacing:.06em;margin-bottom:28px}   /* community metadata = pink */
 .pill .dot{color:var(--magenta)}                    /* small highlight */
 .hero h1 .accent{color:var(--blue)}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
 .figure{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 20px 50px -30px var(--shadow)}
-.figure .ph{aspect-ratio:4/3;border-radius:11px;background:repeating-linear-gradient(135deg,var(--ph-a),var(--ph-a) 14px,var(--ph-b) 14px,var(--ph-b) 28px);display:flex;align-items:center;justify-content:center}
-.figure .ph span{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);letter-spacing:.04em}
+.figure .ph{aspect-ratio:4/3;border-radius:11px;background:repeating-linear-gradient(135deg,var(--ph-a),var(--ph-a) 14px,var(--ph-b) 14px,var(--ph-b) 28px);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(234,164,164,.22)}   /* subtle pink hairline — branded placeholder */
+.figure .ph span{font-family:var(--font-mono);font-size:12px;color:rgba(234,164,164,.7);letter-spacing:.04em}
+.figure .ph img{width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block}   /* real event photo fills the frame */
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:16px 6px 8px;text-align:center}
 .stats .n{font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink)}
 .stats .l{font-size:11px;color:var(--ink-3);margin-top:2px}
@@ -127,13 +130,17 @@ strong{color:var(--ink)}
 /* ---- format ---- */
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:36px}
 .stat-card{padding:24px;background:var(--card);border:1px solid var(--line);border-radius:12px;transition:border-color .18s ease}
-.stat-card:hover{border-color:var(--blue)}
+.stat-card:hover{border-color:var(--pink)}   /* dark-card hover = Pulse Pink (poster tie-in) */
 .stat-card .big{font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--pink);margin-bottom:6px}   /* event highlights = pink */
 .stat-card .sub{font-size:13px;color:var(--ink-2);line-height:1.5}
 .chips{display:flex;flex-wrap:wrap;gap:9px;align-items:center}
 .chips .label{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-3);margin-right:4px}
 .chip{padding:8px 15px;background:var(--card);border:1px solid var(--line);border-radius:20px;font-size:13px;color:var(--ink-2)}
-.chip.on{background:var(--magenta);color:var(--charcoal);border:0}    /* selected = magenta (small) */
+.chip.on{background:var(--magenta);color:var(--charcoal);border-color:var(--magenta)}    /* magenta = selected / expanded state */
+.chip.more{font-family:var(--font-body);cursor:pointer}
+.chip.more:hover{border-color:var(--magenta)}          /* hover hint = magenta */
+.chip.extra{display:none}                              /* revealed by the "+ more" toggle */
+.chips.expanded .chip.extra{display:inline-block}
 .cols-2{display:grid;grid-template-columns:1fr 1fr;gap:44px}
 .subhead{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:14px;font-family:var(--font-mono);letter-spacing:.05em}
 .tags{display:flex;flex-wrap:wrap;gap:8px}
@@ -143,50 +150,53 @@ strong{color:var(--ink)}
 /* ---- members / hosts ---- */
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .member{padding:44px 30px;background:var(--card);border:1px solid var(--line);border-radius:16px;text-align:center;transition:border-color .18s ease}
-.member:hover{border-color:var(--blue)}
+.member:hover{border-color:var(--pink)}
 .member .logo{font-family:var(--font-display);font-weight:700;font-size:32px;color:var(--ink);letter-spacing:-.02em}
-.member .role{font-size:12px;color:var(--ink-3);margin-top:10px;font-family:var(--font-mono)}
+.member .role{font-size:12px;color:var(--pink);margin-top:10px;font-family:var(--font-mono)}   /* community metadata = pink */
 .member.open{background:rgba(234,164,164,.10);border:1.5px dashed var(--pink);display:flex;flex-direction:column;align-items:center;justify-content:center}
 .member.open .logo{font-family:var(--font-mono);font-weight:500;font-size:15px;color:var(--pink)}
-.section.light .member.open .logo{color:#b9564f}   /* keep pink label readable on off-white */
+.member.open .role{color:var(--link)}              /* arrow CTA = Cloud Blue, no exceptions */
+.section.light .member.open .logo{color:var(--pink-deep)}   /* keep pink label readable on off-white */
 .hosts{display:flex;flex-wrap:wrap;gap:16px}
 .host{flex:1;min-width:230px;padding:28px;background:var(--card);border:1px solid var(--line);border-radius:13px}
 .host .n{font-family:var(--font-display);font-weight:600;font-size:22px;color:var(--ink)}
-.host .r{font-size:12px;color:var(--ink-3);margin-top:6px}
+.host .r{font-size:12px;color:var(--pink-deep);margin-top:6px}   /* community metadata = pink (deepened on light) */
 
 /* ---- talks ---- */
 .talks-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:16px}
-.badge{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-3);padding:8px 14px;border:1px solid var(--line-2);border-radius:8px}
+.badge{font-family:var(--font-mono);font-size:12.5px;color:var(--pink);padding:8px 14px;border:1px solid rgba(234,164,164,.42);border-radius:8px}   /* archive status = pink */
 .talk{text-decoration:none;border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--card);display:block;transition:border-color .18s ease}
-.talk:hover{border-color:var(--blue)}
-.talk .thumb{aspect-ratio:16/9;background:repeating-linear-gradient(45deg,var(--ph-a),var(--ph-a) 12px,var(--ph-b) 12px,var(--ph-b) 24px);display:flex;align-items:center;justify-content:center;color:var(--blue)}   /* play icon = cloud blue */
+.talk:hover{border-color:var(--pink)}
+.talk .thumb{aspect-ratio:16/9;background:repeating-linear-gradient(45deg,var(--ph-a),var(--ph-a) 12px,var(--ph-b) 12px,var(--ph-b) 24px);display:flex;align-items:center;justify-content:center;color:var(--pink);box-shadow:inset 0 0 0 1px rgba(234,164,164,.18)}   /* play ring = pulse pink, branded placeholder */
+.talk:hover .thumb{color:var(--magenta)}   /* hover icon = magenta */
 .talk .body{padding:18px}
 .talk .t{font-size:14px;color:var(--ink);font-weight:600;margin-bottom:6px}
-.talk .m{font-size:12px;color:var(--ink-3);font-family:var(--font-mono)}
+.talk .m{font-size:12px;color:var(--pink);font-family:var(--font-mono)}   /* speaker metadata = pink */
 
 /* ---- get involved (dark CTA island) ---- */
 .dark-sec{background:#232122;color:var(--ink)}
-.dark-sec .eyebrow{color:var(--pink)}
 .center{text-align:center}
 .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto}
 .icard{padding:32px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:15px;transition:border-color .18s ease}
-.icard:hover{border-color:rgba(131,156,248,.55)}
+.icard:hover{border-color:rgba(234,164,164,.55)}
 .icard .k{font-family:var(--font-mono);color:var(--blue);font-size:13px;margin-bottom:12px}
+.cards-3 .icard:nth-child(2) .k{color:var(--pink)}   /* 02/HOST = community (pink); 01+03 = action (blue) */
 .icard .h{font-size:18px;font-weight:600;margin-bottom:8px}
 .icard p{font-size:13.5px;color:rgba(239,239,239,.66);line-height:1.6;margin:0 0 18px}
 .icard a{font-size:13.5px;color:var(--blue);text-decoration:none;font-weight:500}
-.icard a:hover{color:var(--magenta)}
+.icard a:hover{color:var(--magenta);text-decoration:underline}   /* hover = magenta + underline */
 .dark-sec .cta-row{margin-top:42px}
 
 /* ---- footer ---- */
 .footer{background:#211F20;color:var(--ink-2)}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;padding-top:38px;padding-bottom:38px}
 .footer .fbrand{display:flex;align-items:center;gap:11px}
-.footer .fbrand .mark{width:22px;height:22px;border-radius:5px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:var(--charcoal);font-family:var(--font-mono);font-weight:600;font-size:11px}
+.footer .fbrand .logo-img{height:26px;width:auto;display:block;filter:var(--logo-filter)}   /* same lockup as the header, footer-sized */
 .footer .fbrand span{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.04em;color:var(--ink-2)}
+.footer .fbrand .sep{color:var(--pink)}   /* the page ends on the palette, not grey */
 .footer nav{display:flex;gap:22px;font-size:13px;font-family:var(--font-mono)}
 .footer nav a{color:var(--blue);text-decoration:none}
-.footer nav a:hover{color:var(--magenta)}
+.footer nav a:hover{color:var(--magenta);text-decoration:underline}
 
 /* ---- responsive ---- */
 @media (max-width:860px){
@@ -232,8 +242,7 @@ strong{color:var(--ink)}
       </div>
     </div>
     <div class="figure">
-      <!-- EDIT: replace this placeholder with <img src="..."> of an event photo -->
-      <div class="ph"><span>[ event photo / community shot ]</span></div>
+      <div class="ph"><img src="assets/event-photo.jpg" alt="AI Cyber Alliance meetup — the community gathered around a live technical demo"></div>
       <div class="stats">
         <div><div class="n">50–70</div><div class="l">attendees</div></div>
         <div class="mid"><div class="n">2 wks</div><div class="l">cadence</div></div>
@@ -275,9 +284,9 @@ strong{color:var(--ink)}
       <span class="chip">Boston</span>
       <span class="chip">Washington DC</span>
       <span class="chip">Seattle</span>
-      <span class="chip">Bay Area</span>
-      <span class="chip">San Francisco</span>
-      <span class="chip on">+ more</span>
+      <span class="chip extra">Bay Area</span>
+      <span class="chip extra">San Francisco</span>
+      <button class="chip more" type="button" aria-expanded="false">+ more</button>
     </div>
     <div class="cols-2">
       <div>
@@ -332,7 +341,7 @@ strong{color:var(--ink)}
 <!-- ============ HOSTS (light) ============ -->
 <section id="hosts" class="section light">
   <div class="wrap" style="padding-top:66px;padding-bottom:66px">
-    <div class="eyebrow" style="color:var(--ink-3)">With gratitude</div>
+    <div class="eyebrow">With gratitude</div>
     <h2 style="font-size:27px;margin-bottom:28px">Thank you to our hosts</h2>
     <div class="hosts">
       <div class="host"><div class="n">Snowflake</div><div class="r">Host venue</div></div>
@@ -410,8 +419,8 @@ strong{color:var(--ink)}
 <footer class="footer">
   <div class="wrap footer-inner">
     <div class="fbrand">
-      <span class="mark">AI</span>
-      <span>AI Cyber Alliance — community-led &amp; open source</span>
+      <img class="logo-img" src="assets/aca-logo-black.png" alt="AI Cyber Alliance">
+      <span><span class="sep">·</span> community-led &amp; open source</span>
     </div>
     <nav>
       <a href="https://github.com/AI-in-Cyber-Alliance">GitHub</a>
@@ -421,6 +430,16 @@ strong{color:var(--ink)}
     </nav>
   </div>
 </footer>
+
+<script>
+// "+ more" cities toggle — Magenta marks the expanded state
+document.querySelector('.chip.more').addEventListener('click', function(){
+  var on = this.classList.toggle('on');
+  this.closest('.chips').classList.toggle('expanded', on);
+  this.setAttribute('aria-expanded', on);
+  this.textContent = on ? '− fewer' : '+ more';
+});
+</script>
 
 </body>
 </html>
