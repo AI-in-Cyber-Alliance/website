@@ -152,19 +152,20 @@ strong{color:var(--ink)}
 .member{padding:44px 30px;background:var(--card);border:1px solid var(--line);border-radius:16px;text-align:center;transition:border-color .18s ease}
 .member:hover{border-color:var(--pink)}
 .member .logo{font-family:var(--font-display);font-weight:700;font-size:32px;color:var(--ink);letter-spacing:-.02em}
+.member .mlogo{width:auto;max-width:100%;display:block}   /* member logo art, height set per logo */
 .member .role{font-size:12px;color:var(--pink);margin-top:10px;font-family:var(--font-mono)}   /* community metadata = pink */
 .member.open{background:rgba(234,164,164,.10);border:1.5px dashed var(--pink);display:flex;flex-direction:column;align-items:center;justify-content:center}
 .member.open .logo{font-family:var(--font-mono);font-weight:500;font-size:15px;color:var(--pink)}
 .member.open .role{color:var(--link)}              /* arrow CTA = Cloud Blue, no exceptions */
 .section.light .member.open .logo{color:var(--pink-deep)}   /* keep pink label readable on off-white */
 .hosts{display:flex;flex-wrap:wrap;gap:16px}
-.host{flex:1;min-width:230px;padding:28px;background:var(--card);border:1px solid var(--line);border-radius:13px}
-.host .n{font-family:var(--font-display);font-weight:600;font-size:22px;color:var(--ink)}
-.host .r{font-size:12px;color:var(--pink-deep);margin-top:6px}   /* community metadata = pink (deepened on light) */
+.host{flex:1;min-width:230px;padding:28px;background:var(--card);border:1px solid var(--line);border-radius:13px;display:flex;align-items:center}
+.host .hlogo{width:auto;max-width:100%;object-fit:contain;object-position:left center;display:block}   /* trimmed logo art, height set per logo */
 
 /* ---- talks ---- */
 .talks-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:16px}
-.badge{font-family:var(--font-mono);font-size:12.5px;color:var(--pink);padding:8px 14px;border:1px solid rgba(234,164,164,.42);border-radius:8px}   /* archive status = pink */
+.badge{font-family:var(--font-mono);font-size:12.5px;color:var(--link);padding:8px 14px;border:1px solid rgba(131,156,248,.45);border-radius:8px;text-decoration:none}   /* arrow CTA = Cloud Blue */
+.badge:hover{color:var(--magenta);border-color:var(--magenta)}
 .talk{text-decoration:none;border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--card);display:block;transition:border-color .18s ease}
 .talk:hover{border-color:var(--pink)}
 .talk .thumb{aspect-ratio:16/9;background:repeating-linear-gradient(45deg,var(--ph-a),var(--ph-a) 12px,var(--ph-b) 12px,var(--ph-b) 24px);display:flex;align-items:center;justify-content:center;color:var(--pink);box-shadow:inset 0 0 0 1px rgba(234,164,164,.18)}   /* play ring = pulse pink, branded placeholder */
@@ -334,7 +335,7 @@ strong{color:var(--ink)}
     <div class="grid-3">
       <!-- EDIT: swap wordmark for <img src="logos/vigil.svg" alt="Vigil"> when you have logo art -->
       <div class="member"><div class="logo">Vigil</div><div class="role">Open Source Community</div></div>
-      <div class="member"><div class="logo">DeepTempo</div><div class="role">AI for cyber defense</div></div>
+      <div class="member" style="display:flex;align-items:center;justify-content:center"><img class="mlogo" src="assets/member-deeptempo.png" alt="DeepTempo" style="height:40px"></div>
       <div class="member open"><div class="logo">[ your logo here ]</div><div class="role">New organizations welcome →</div></div>
     </div>
   </div>
@@ -346,9 +347,10 @@ strong{color:var(--ink)}
     <div class="eyebrow">With gratitude</div>
     <h2 style="font-size:27px;margin-bottom:28px">Thank you to our hosts</h2>
     <div class="hosts">
-      <div class="host"><div class="n">Snowflake</div><div class="r">Host venue</div></div>
-      <div class="host"><div class="n">JTEK</div><div class="r">Systems integrator · host</div></div>
-      <div class="host"><div class="n">Stifel Bank</div><div class="r">San Francisco · host</div></div>
+      <div class="host"><img class="hlogo" src="assets/host-snowflake.png" alt="Snowflake" style="height:34px"></div>
+      <div class="host"><img class="hlogo" src="assets/host-jtek-data.png" alt="JTEK Data" style="height:38px"></div>
+      <div class="host"><img class="hlogo" src="assets/host-stifel.png" alt="Stifel" style="height:30px"></div>
+      <div class="host"><a href="https://www.ventureguides.com/" target="_blank" rel="noopener"><img class="hlogo" src="assets/host-venture-guides.png" alt="Venture Guides" style="height:26px"></a></div>
     </div>
   </div>
 </section>
@@ -361,7 +363,7 @@ strong{color:var(--ink)}
         <div class="eyebrow">The archive</div>
         <h2>Watch past talks</h2>
       </div>
-      <span class="badge">recordings coming soon</span>
+      <a class="badge" href="https://www.youtube.com/@AICyberAlliance" target="_blank" rel="noopener">View all recordings →</a>
     </div>
     <div class="grid-3">
       <!-- EDIT: set href to the YouTube URL and update title/meta for each talk. Duplicate a card to add more. -->
@@ -378,7 +380,7 @@ strong{color:var(--ink)}
         <div class="body"><div class="t">Talk title coming soon</div><div class="m">Speaker · City · 2026</div></div>
       </a>
     </div>
-    <p style="font-size:13px;color:var(--ink-3);margin:22px 0 0">Recordings live on <a href="https://www.youtube.com/@AICyberAlliance" target="_blank" rel="noopener">YouTube</a> and get linked here as events happen.</p>
+    <p style="font-size:13px;color:var(--ink-3);margin:22px 0 0">Catch up on talks from AI Cyber Alliance events. New sessions are published after each meetup.</p>
   </div>
 </section>
 
@@ -387,7 +389,7 @@ strong{color:var(--ink)}
   <div class="wrap" style="padding-top:86px;padding-bottom:86px">
     <div class="center" style="margin-bottom:46px">
       <div class="eyebrow">Get involved</div>
-      <h2 style="font-size:42px;margin:0 auto;max-width:640px">Speak. Host. Or join the alliance.</h2>
+      <h2 style="font-size:42px;margin:0 auto;max-width:640px">Speak. Host. Join the alliance.</h2>
     </div>
     <div class="cards-3">
       <div class="icard">
@@ -411,7 +413,7 @@ strong{color:var(--ink)}
       </div>
     </div>
     <div class="cta-row" style="justify-content:center">
-      <a class="btn btn-primary" href="https://luma.com/calendar/cal-PWZSiCpJoPE914l" target="_blank" rel="noopener">View the calendar on Luma</a>
+      <a class="btn btn-primary" href="https://luma.com/calendar/cal-PWZSiCpJoPE914l" target="_blank" rel="noopener">View upcoming events</a>
       <a class="btn btn-ghost" href="https://www.linkedin.com/groups/17875019/">Join the LinkedIn group</a>
     </div>
   </div>
