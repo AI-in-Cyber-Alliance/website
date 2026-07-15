@@ -149,18 +149,18 @@ strong{color:var(--ink)}
 
 /* ---- members / hosts ---- */
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.member{padding:44px 30px;background:var(--card);border:1px solid var(--line);border-radius:16px;text-align:center;transition:border-color .18s ease}
+.member{padding:44px 30px;background:var(--card);border:1px solid var(--line);border-radius:16px;text-align:center;transition:border-color .18s ease;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .member:hover{border-color:var(--pink)}
 .member .logo{font-family:var(--font-display);font-weight:700;font-size:32px;color:var(--ink);letter-spacing:-.02em}
 .member .mlogo{width:auto;max-width:100%;display:block}   /* member logo art, height set per logo */
 .member .role{font-size:12px;color:var(--pink);margin-top:10px;font-family:var(--font-mono)}   /* community metadata = pink */
-.member.open{background:rgba(234,164,164,.10);border:1.5px dashed var(--pink);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.member.open{background:rgba(234,164,164,.10);border:1.5px dashed var(--pink)}
 .member.open .logo{font-family:var(--font-mono);font-weight:500;font-size:15px;color:var(--pink)}
 .member.open .role{color:var(--link)}              /* arrow CTA = Cloud Blue, no exceptions */
 .section.light .member.open .logo{color:var(--pink-deep)}   /* keep pink label readable on off-white */
 .hosts{display:flex;flex-wrap:wrap;gap:16px}
-.host{flex:1;min-width:230px;padding:28px;background:var(--card);border:1px solid var(--line);border-radius:13px;display:flex;align-items:center}
-.host .hlogo{width:auto;max-width:100%;object-fit:contain;object-position:left center;display:block}   /* trimmed logo art, height set per logo */
+.host{flex:1;min-width:230px;padding:28px;background:var(--card);border:1px solid var(--line);border-radius:13px;display:flex;align-items:center;justify-content:center}
+.host .hlogo{width:auto;max-width:100%;object-fit:contain;object-position:center;display:block}   /* trimmed logo art, height set per logo */
 
 /* ---- talks ---- */
 .talks-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:16px}
@@ -334,8 +334,8 @@ strong{color:var(--ink)}
     <p style="font-size:15px;color:var(--ink-2);margin:0 0 40px;max-width:580px">Equal peers who put in the work to make these events happen. The alliance is open — we'd love your organization alongside them.</p>
     <div class="grid-3">
       <!-- EDIT: swap wordmark for <img src="logos/vigil.svg" alt="Vigil"> when you have logo art -->
-      <div class="member"><div class="logo">Vigil</div><div class="role">Open Source Community</div></div>
-      <div class="member" style="display:flex;align-items:center;justify-content:center"><img class="mlogo" src="assets/member-deeptempo.png" alt="DeepTempo" style="height:40px"></div>
+      <div class="member"><div class="logo">Vigil</div></div>
+      <div class="member"><a href="https://www.deeptempo.ai/" target="_blank" rel="noopener"><img class="mlogo" src="assets/member-deeptempo.png" alt="DeepTempo" style="height:40px"></a></div>
       <div class="member open"><div class="logo">[ your logo here ]</div><div class="role">New organizations welcome →</div></div>
     </div>
   </div>
@@ -347,7 +347,7 @@ strong{color:var(--ink)}
     <div class="eyebrow">With gratitude</div>
     <h2 style="font-size:27px;margin-bottom:28px">Thank you to our hosts</h2>
     <div class="hosts">
-      <div class="host"><img class="hlogo" src="assets/host-snowflake.png" alt="Snowflake" style="height:34px"></div>
+      <div class="host"><a href="https://www.snowflake.com/en/" target="_blank" rel="noopener"><img class="hlogo" src="assets/host-snowflake.png" alt="Snowflake" style="height:34px"></a></div>
       <div class="host"><img class="hlogo" src="assets/host-jtek-data.png" alt="JTEK Data" style="height:38px"></div>
       <div class="host"><img class="hlogo" src="assets/host-stifel.png" alt="Stifel" style="height:30px"></div>
       <div class="host"><a href="https://www.ventureguides.com/" target="_blank" rel="noopener"><img class="hlogo" src="assets/host-venture-guides.png" alt="Venture Guides" style="height:26px"></a></div>
