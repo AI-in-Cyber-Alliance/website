@@ -182,9 +182,8 @@ strong{color:var(--ink)}
 .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto}
 .icard{padding:32px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:15px;transition:border-color .18s ease}
 .icard:hover{border-color:rgba(234,164,164,.55)}
-.icard .k{font-family:var(--font-mono);color:var(--blue);font-size:13px;margin-bottom:12px}
-.cards-3 .icard:nth-child(2) .k{color:var(--pink)}   /* 02/HOST = community (pink); 01+03 = action (blue) */
-.icard .h{font-size:18px;font-weight:600;margin-bottom:8px}
+.icard .k{font-family:var(--font-mono);color:var(--pink);font-size:13px;margin-bottom:12px}   /* all sublines Pulse Pink */
+.icard .h{font-size:18px;font-weight:600;margin-bottom:8px;color:var(--pink)}   /* card headlines = Pulse Pink */
 .icard p{font-size:13.5px;color:rgba(239,239,239,.66);line-height:1.6;margin:0 0 18px}
 .icard a{font-size:13.5px;color:var(--blue);text-decoration:none;font-weight:500}
 .icard a:hover{color:var(--magenta);text-decoration:underline}   /* hover = magenta + underline */
@@ -241,7 +240,7 @@ strong{color:var(--ink)}
       <p class="lead">Sharing hands-on experiences using AI, software, and dedicated humans. Two technical talks every two weeks, across the US. Built by the community — no product pitches.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://forms.gle/dih1br2x3Vrxh4fo6" target="_blank" rel="noopener">Propose a talk →</a>
-        <a class="btn btn-ghost" href="https://luma.com/calendar/cal-PWZSiCpJoPE914l" target="_blank" rel="noopener">See the calendar</a>
+        <a class="btn btn-ghost" href="https://luma.com/calendar/cal-PWZSiCpJoPE914l" target="_blank" rel="noopener">View upcoming events</a>
       </div>
     </div>
     <div class="figure">
@@ -263,7 +262,7 @@ strong{color:var(--ink)}
       <h2>A space for technical communities — not a stage for sales.</h2>
     </div>
     <div>
-      <p>The AI Cyber Alliance and the <strong>Vigil Open Source Community</strong> bring together engineers, researchers, practitioners, and maintainers working across AI, cybersecurity, Cloud Native technologies, and open source.</p>
+      <p>The <strong>AI Cyber Alliance</strong> and the <strong>Vigil Open Source Community</strong> bring together engineers, researchers, practitioners, and maintainers working across AI, cybersecurity, Cloud Native technologies, and open source.</p>
       <p>Our goal is simple: create a space where technical communities can share ideas, learn from one another, and build meaningful connections. We welcome real-world case studies, open source project stories, production learnings, research, and live demonstrations.</p>
       <div class="callout"><p>We're <strong>community-first</strong>. We value talks that are educational, practical, and experience-driven — and we're not interested in product pitches or marketing presentations.</p></div>
     </div>
@@ -333,8 +332,7 @@ strong{color:var(--ink)}
     <h2 style="margin-bottom:8px">Founding members</h2>
     <p style="font-size:15px;color:var(--ink-2);margin:0 0 40px;max-width:580px">Equal peers who put in the work to make these events happen. The alliance is open — we'd love your organization alongside them.</p>
     <div class="grid-3">
-      <!-- EDIT: swap wordmark for <img src="logos/vigil.svg" alt="Vigil"> when you have logo art -->
-      <div class="member"><div class="logo">Vigil</div></div>
+      <div class="member"><a href="https://github.com/Vigil-SOC/vigil" target="_blank" rel="noopener"><img class="mlogo" src="assets/member-vigil.svg" alt="Vigil" style="height:64px"></a></div>
       <div class="member"><a href="https://www.deeptempo.ai/" target="_blank" rel="noopener"><img class="mlogo" src="assets/member-deeptempo.png" alt="DeepTempo" style="height:40px"></a></div>
       <div class="member open"><div class="logo">[ your logo here ]</div><div class="role">New organizations welcome →</div></div>
     </div>
@@ -348,8 +346,8 @@ strong{color:var(--ink)}
     <h2 style="font-size:27px;margin-bottom:28px">Thank you to our hosts</h2>
     <div class="hosts">
       <div class="host"><a href="https://www.snowflake.com/en/" target="_blank" rel="noopener"><img class="hlogo" src="assets/host-snowflake.png" alt="Snowflake" style="height:34px"></a></div>
-      <div class="host"><img class="hlogo" src="assets/host-jtek-data.png" alt="JTEK Data" style="height:38px"></div>
-      <div class="host"><img class="hlogo" src="assets/host-stifel.png" alt="Stifel" style="height:30px"></div>
+      <div class="host"><a href="https://jtekds.com/" target="_blank" rel="noopener"><img class="hlogo" src="assets/host-jtek-data.png" alt="JTEK Data" style="height:38px"></a></div>
+      <div class="host"><a href="https://www.stifel.com/" target="_blank" rel="noopener"><img class="hlogo" src="assets/host-stifel.png" alt="Stifel" style="height:30px"></a></div>
       <div class="host"><a href="https://www.ventureguides.com/" target="_blank" rel="noopener"><img class="hlogo" src="assets/host-venture-guides.png" alt="Venture Guides" style="height:26px"></a></div>
     </div>
   </div>
@@ -396,7 +394,7 @@ strong{color:var(--ink)}
         <div class="k">01 / SPEAK</div>
         <div class="h">Propose a talk</div>
         <p>A 20-minute technical talk, Q&amp;A, slides shared in advance where possible. Educational and experience-driven.</p>
-        <a href="https://forms.gle/dih1br2x3Vrxh4fo6" target="_blank" rel="noopener">Speaker interest form →</a>
+        <a href="https://forms.gle/dih1br2x3Vrxh4fo6" target="_blank" rel="noopener">Submit a talk →</a>
       </div>
       <div class="icard">
         <div class="k">02 / HOST</div>
