@@ -93,6 +93,9 @@ h2{font-family:var(--font-display);font-weight:600;font-size:37px;line-height:1.
 .nav-links a{text-decoration:none;color:var(--offwhite)}
 .nav-links a:hover{color:var(--magenta)}          /* hover = magenta */
 .nav-links a.active{color:var(--blue)}             /* active = cloud blue */
+/* "Propose a talk" nav CTA — charcoal text (override the white nav-link color) + glowing pink border */
+.nav-links a.btn-primary{color:var(--on-blue);border:1.5px solid var(--pink);box-shadow:0 0 12px rgba(234,164,164,.7)}
+.nav-links a.btn-primary:hover{color:var(--on-blue);background:var(--blue);border-color:var(--pink);box-shadow:0 0 20px rgba(234,164,164,.95)}
 .btn{border-radius:9px;text-decoration:none;font-weight:600;font-size:15px;padding:14px 26px;display:inline-block;transition:box-shadow .18s ease,border-color .18s ease,background .18s ease}
 .btn-sm{padding:9px 18px;font-weight:500;font-size:14px;border-radius:8px}
 .btn-primary{background:var(--blue);color:var(--on-blue)}
@@ -159,7 +162,7 @@ strong{color:var(--ink)}
 .member.open .role{color:var(--link)}              /* arrow CTA = Cloud Blue, no exceptions */
 .section.light .member.open .logo{color:var(--pink-deep)}   /* keep pink label readable on off-white */
 .hosts{display:flex;flex-wrap:wrap;gap:16px}
-.host{flex:1;min-width:230px;padding:28px;background:var(--card);border:1px solid var(--line);border-radius:13px;display:flex;align-items:center;justify-content:center}
+.host{flex:1;min-width:190px;padding:28px;background:var(--card);border:1px solid var(--line);border-radius:13px;display:flex;align-items:center;justify-content:center}
 .host .hlogo{width:auto;max-width:100%;object-fit:contain;object-position:center;display:block}   /* trimmed logo art, height set per logo */
 
 /* ---- talks ---- */
@@ -332,9 +335,9 @@ strong{color:var(--ink)}
     <h2 style="margin-bottom:8px">Founding members</h2>
     <p style="font-size:15px;color:var(--ink-2);margin:0 0 40px;max-width:580px">Equal peers who put in the work to make these events happen. The alliance is open — we'd love your organization alongside them.</p>
     <div class="grid-3">
-      <div class="member"><a href="https://github.com/Vigil-SOC/vigil" target="_blank" rel="noopener"><img class="mlogo" src="assets/member-vigil.svg" alt="Vigil" style="height:64px"></a></div>
+      <div class="member"><a href="https://github.com/Vigil-SOC/vigil" target="_blank" rel="noopener"><img class="mlogo" src="assets/member-vigil.png" alt="Vigil" style="height:50px"></a></div>
       <div class="member"><a href="https://www.deeptempo.ai/" target="_blank" rel="noopener"><img class="mlogo" src="assets/member-deeptempo.png" alt="DeepTempo" style="height:40px"></a></div>
-      <div class="member"><a href="#" target="_blank" rel="noopener"><img class="mlogo" src="assets/cclogo_nobckgrnd.PNG" alt="CloudCurrent" style="height:80px"></a></div>
+      <div class="member"><a href="https://www.cloudcurrent.biz/" target="_blank" rel="noopener"><img class="mlogo" src="assets/member-cloudcurrent.png" alt="CloudCurrent" style="height:60px"></a></div>
       <div class="member open"><div class="logo">[ your logo here ]</div><div class="role">New organizations welcome →</div></div>
     </div>
   </div>
@@ -350,6 +353,7 @@ strong{color:var(--ink)}
       <div class="host"><a href="https://jtekds.com/" target="_blank" rel="noopener"><img class="hlogo" src="assets/host-jtek-data.png" alt="JTEK Data" style="height:38px"></a></div>
       <div class="host"><a href="https://www.stifel.com/" target="_blank" rel="noopener"><img class="hlogo" src="assets/host-stifel.png" alt="Stifel" style="height:30px"></a></div>
       <div class="host"><a href="https://www.ventureguides.com/" target="_blank" rel="noopener"><img class="hlogo" src="assets/host-venture-guides.png" alt="Venture Guides" style="height:26px"></a></div>
+      <div class="host"><a href="https://delphoslabs.com/" target="_blank" rel="noopener"><img class="hlogo" src="assets/host-delphos-labs.png" alt="Delphos Labs" style="height:26px"></a></div>
     </div>
   </div>
 </section>
