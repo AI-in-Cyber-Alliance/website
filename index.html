@@ -100,6 +100,9 @@ h2{font-family:var(--font-display);font-weight:600;font-size:37px;line-height:1.
 .btn-sm{padding:9px 18px;font-weight:500;font-size:14px;border-radius:8px}
 .btn-primary{background:var(--blue);color:var(--on-blue)}
 .btn-primary:hover{background:var(--blue);box-shadow:0 6px 22px -6px rgba(237,88,245,.62)}   /* subtle magenta glow, blue stays dominant */
+/* hero "Propose a talk" — same glowing pink halo as the nav CTA */
+.btn-glow{border:1.5px solid var(--pink);box-shadow:0 0 12px rgba(234,164,164,.7)}
+.btn-glow:hover{border-color:var(--pink);box-shadow:0 0 20px rgba(234,164,164,.95)}
 .btn-ghost{background:transparent;color:var(--ink);border:1px solid rgba(239,239,239,.5);font-weight:500}
 .section.light .btn-ghost{border-color:rgba(43,41,42,.4)}
 .btn-ghost:hover{border-color:var(--magenta)}       /* subtle magenta accent on hover */
@@ -242,7 +245,7 @@ strong{color:var(--ink)}
       <h1>Making cyber faster and more intelligent — <span class="accent">together, in the open.</span></h1>
       <p class="lead">Sharing hands-on experiences using AI, software, and dedicated humans. Two technical talks every two weeks, across the US. Built by the community — no product pitches.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://forms.gle/dih1br2x3Vrxh4fo6" target="_blank" rel="noopener">Propose a talk →</a>
+        <a class="btn btn-primary btn-glow" href="https://forms.gle/dih1br2x3Vrxh4fo6" target="_blank" rel="noopener">Propose a talk →</a>
         <a class="btn btn-ghost" href="https://luma.com/calendar/cal-PWZSiCpJoPE914l" target="_blank" rel="noopener">View upcoming events</a>
       </div>
     </div>
