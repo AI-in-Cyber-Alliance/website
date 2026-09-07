@@ -1,0 +1,3 @@
+# Every pull request needs an approving review from a code owner before it can merge.
+# Pair this file with the branch protection rule described in CONTRIBUTING.md ("Maintainers").
+*   @epowell101 @johnvanlowe

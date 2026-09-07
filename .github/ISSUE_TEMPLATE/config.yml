@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Propose a talk
+    url: https://forms.gle/dih1br2x3Vrxh4fo6
+    about: Speaker proposals go through the talk form, not GitHub.
+  - name: Follow the events calendar
+    url: https://luma.com/aicyberalliance
+    about: Every AI Cyber Alliance event, every city.
+  - name: LinkedIn group
+    url: https://www.linkedin.com/groups/17875019/
+    about: General questions and discussion.

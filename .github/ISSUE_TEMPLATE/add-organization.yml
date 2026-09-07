@@ -1,0 +1,51 @@
+name: Add my organization as a member
+description: Request a listing under "Founding members" on the site.
+title: "[Member] "
+labels: ["member", "listing"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Members are equal peers who put in the work: they co-organize, speak, sponsor, or host.
+        Listing is by review against the criteria in [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md#get-listed).
+        If you can edit HTML, you can also open a pull request directly using the `TEMPLATE: member` block in `index.html`.
+  - type: input
+    id: org
+    attributes:
+      label: Organization
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Website URL
+    validations:
+      required: true
+  - type: input
+    id: contact
+    attributes:
+      label: Contact
+      description: Name plus email or LinkedIn. Maintainers only; not published.
+    validations:
+      required: true
+  - type: textarea
+    id: contribution
+    attributes:
+      label: What you have done or committed to
+      description: Link the event, talk, or Luma page. Sponsorship counts; a logo alone does not.
+    validations:
+      required: true
+  - type: textarea
+    id: logo
+    attributes:
+      label: Logo
+      description: Drag a trimmed, transparent PNG or SVG here (under 100 KB). Dark and light variants welcome.
+  - type: checkboxes
+    id: agree
+    attributes:
+      label: Values
+      options:
+        - label: We share the community-first, vendor-neutral, no-product-pitches values
+          required: true
+        - label: We agree the logo may be shown on the site under the project's content license
+          required: true

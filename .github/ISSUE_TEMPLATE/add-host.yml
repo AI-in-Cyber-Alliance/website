@@ -1,0 +1,49 @@
+name: Add a host
+description: Request a listing under "Thank you to our hosts" after hosting, or offer space for a future event.
+title: "[Host] "
+labels: ["host", "listing"]
+body:
+  - type: input
+    id: org
+    attributes:
+      label: Organization
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Website URL
+    validations:
+      required: true
+  - type: input
+    id: contact
+    attributes:
+      label: Contact
+      description: Maintainers only; not published.
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      options:
+        - We hosted an event (link it below)
+        - We have a confirmed date for a future event
+        - We have space and want to host; no date yet
+    validations:
+      required: true
+  - type: input
+    id: event
+    attributes:
+      label: Event
+      description: Luma URL of the event you hosted or will host.
+  - type: input
+    id: location
+    attributes:
+      label: Venue city and capacity
+      placeholder: "Tysons Corner, VA. Room for 60."
+  - type: textarea
+    id: logo
+    attributes:
+      label: Logo
+      description: Drag a trimmed, transparent PNG or SVG here (under 100 KB).
