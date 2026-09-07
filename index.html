@@ -160,7 +160,10 @@ strong{color:var(--ink)}
 .member .logo{font-family:var(--font-display);font-weight:700;font-size:32px;color:var(--ink);letter-spacing:-.02em}
 .member .mlogo{width:auto;max-width:100%;display:block}   /* member logo art, height set per logo */
 .member .role{font-size:12px;color:var(--pink);margin-top:10px;font-family:var(--font-mono)}   /* community metadata = pink */
-.member.open{background:rgba(234,164,164,.10);border:1.5px dashed var(--pink)}
+.member.open{background:rgba(234,164,164,.10);border:1.5px dashed var(--pink);text-decoration:none}
+.member.open:hover{border-color:var(--magenta)}
+#members p a{color:var(--link);text-decoration:none}
+#members p a:hover{color:var(--magenta);text-decoration:underline}
 .member.open .logo{font-family:var(--font-mono);font-weight:500;font-size:15px;color:var(--pink)}
 .member.open .role{color:var(--link)}              /* arrow CTA = Cloud Blue, no exceptions */
 .section.light .member.open .logo{color:var(--pink-deep)}   /* keep pink label readable on off-white */
@@ -521,8 +524,8 @@ strong{color:var(--ink)}
 <section id="members" class="section">
   <div class="wrap pad">
     <div class="eyebrow">The alliance</div>
-    <h2 style="margin-bottom:8px">Founding members</h2>
-    <p style="font-size:15px;color:var(--ink-2);margin:0 0 40px;max-width:580px">Equal peers who put in the work to make these events happen. The alliance is open — we'd love your organization alongside them.</p>
+    <h2 style="margin-bottom:8px">Member organizations</h2>
+    <p style="font-size:15px;color:var(--ink-2);margin:0 0 40px;max-width:640px">Founded by DeepTempo, the AI Cyber Alliance is now supported by many organizations: equal peers who put in the work to make these events happen. Interested in joining? <a href="https://github.com/AI-in-Cyber-Alliance/website/issues/new?template=add-organization.yml" target="_blank" rel="noopener">Get in touch</a>.</p>
     <div class="grid-3">
       <div class="member"><a href="https://github.com/Vigil-SOC/vigil" target="_blank" rel="noopener"><img class="mlogo" src="assets/member-vigil.png" alt="Vigil" style="height:50px"></a></div>
       <div class="member"><a href="https://www.deeptempo.ai/" target="_blank" rel="noopener"><img class="mlogo" src="assets/member-deeptempo.png" alt="DeepTempo" style="height:40px"></a></div>
@@ -531,7 +534,7 @@ strong{color:var(--ink)}
       <!-- TEMPLATE: member — copy the line below, fill in the four values, add your logo to assets/. Keep [ your logo here ] last.
       <div class="member"><a href="https://ORG-WEBSITE" target="_blank" rel="noopener"><img class="mlogo" src="assets/member-ORG.png" alt="ORG" style="height:36px"></a></div>
       Height: pick 30–50px so the wordmark reads at the same weight as its neighbours. -->
-      <div class="member open"><div class="logo">[ your logo here ]</div><div class="role">New organizations welcome →</div></div>
+      <a class="member open" href="https://github.com/AI-in-Cyber-Alliance/website/issues/new?template=add-organization.yml" target="_blank" rel="noopener"><div class="logo">[ your logo here ]</div><div class="role">New organizations welcome →</div></a>
     </div>
   </div>
 </section>
@@ -613,7 +616,7 @@ strong{color:var(--ink)}
         <div class="k">03 / JOIN</div>
         <div class="h">Join the alliance</div>
         <p>Organizations that share our community-first values are welcome to join.</p>
-        <a href="https://www.linkedin.com/groups/17875019/">Say hello →</a>
+        <a href="https://github.com/AI-in-Cyber-Alliance/website/issues/new?template=add-organization.yml" target="_blank" rel="noopener">Request a listing →</a>
       </div>
     </div>
     <div class="cta-row" style="justify-content:center">
