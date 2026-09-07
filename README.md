@@ -36,7 +36,7 @@ package manager. Open it in any browser to preview; serve the folder to host.
 | About | `#what` | light | What the alliance is and isn't |
 | Format | `#format` | dark | Talk format, cities, audience, topics |
 | **Meet-ups** | `#meetups` | light | City cards, Luma follow, live calendar embed |
-| Members | `#members` | dark | Founding member logos |
+| Members | `#members` | dark | Member organization logos |
 | Hosts | `#hosts` | light | Host logos |
 | Talks | `#talks` | dark | Past talk cards → YouTube |
 | Get involved | `#start` | dark | Speak / Host / Join |

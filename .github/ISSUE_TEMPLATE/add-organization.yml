@@ -1,5 +1,5 @@
 name: Add my organization as a member
-description: Request a listing under "Founding members" on the site.
+description: Request a listing under "Member organizations" on the site.
 title: "[Member] "
 labels: ["member", "listing"]
 body:
