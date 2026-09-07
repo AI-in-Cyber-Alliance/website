@@ -1,0 +1,76 @@
+name: List my city
+description: Start or list an AI Cyber Alliance meet-up in your city. No HTML required; a maintainer turns this into the site change.
+title: "[City] "
+labels: ["city", "listing"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping the alliance grow. Fill this in and a maintainer will review it against the
+        criteria in [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md#get-listed). If approved, your city
+        card goes live on ai-cyber-alliance.org and your events go on the shared Luma calendar.
+  - type: input
+    id: city
+    attributes:
+      label: City or metro
+      placeholder: "Denver, CO"
+    validations:
+      required: true
+  - type: input
+    id: organizer
+    attributes:
+      label: Local organizer
+      description: Name and affiliation of the person who will run it on the ground.
+      placeholder: "Jane Doe, Staff Security Engineer at Example Co"
+    validations:
+      required: true
+  - type: input
+    id: contact
+    attributes:
+      label: Contact
+      description: Email or LinkedIn URL. Used by maintainers only; not published.
+    validations:
+      required: true
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Where are you?
+      options:
+        - Interested, no venue or date yet
+        - Venue secured, date not set
+        - Venue and date set, event submitted on Luma
+    validations:
+      required: true
+  - type: input
+    id: venue
+    attributes:
+      label: Venue
+      description: Name and neighborhood, or "TBD".
+      placeholder: "Example Co HQ, RiNo"
+  - type: input
+    id: target
+    attributes:
+      label: Target month for the first event
+      placeholder: "November 2026"
+  - type: input
+    id: luma
+    attributes:
+      label: Luma event URL
+      description: If you have already submitted the event on https://luma.com/aicyberalliance ("Submit Event").
+      placeholder: "https://luma.com/..."
+  - type: textarea
+    id: community
+    attributes:
+      label: Local community
+      description: Existing groups, companies, or universities you can draw from. Helps us help you.
+  - type: checkboxes
+    id: agree
+    attributes:
+      label: Ground rules
+      options:
+        - label: Events will follow the two-talks, real-Q&A, no-product-pitches format
+          required: true
+        - label: I have read the Code of Conduct and will uphold it at events
+          required: true
+        - label: Events will be listed on the shared Luma calendar so followers hear about them
+          required: true
