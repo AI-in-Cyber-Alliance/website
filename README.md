@@ -95,6 +95,9 @@ Events are run on Luma. The site never stores registrations; it links out.
 - **Live calendar embed:** the `<iframe>` at the bottom of the section is Luma's
   calendar embed and updates itself as events are added. Confirm or refresh the `src`
   from Luma → calendar → **Settings → Embed**. `?lt=light` matches the light section.
+  The iframe starts at 360px, roughly two events, and a bounded `message` listener at the
+  bottom of the file grows it if Luma posts a content height. With many events listed, raise
+  the CSS `height` on `.cal-embed iframe` rather than letting it scroll internally.
 
 ### Everything else
 
