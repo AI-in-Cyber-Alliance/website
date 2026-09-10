@@ -27,7 +27,8 @@ jobs:
         env:
           ACA_ICS_URL: ${{ vars.ACA_ICS_URL }}     # optional override, set in Settings → Variables
         run: |
-          python3 scripts/sync_events.py | tee /tmp/sync.log
+          set -o pipefail          # without this, tee's exit status hides a Python failure
+          python3 scripts/sync_events.py 2>&1 | tee /tmp/sync.log
           if git diff --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
