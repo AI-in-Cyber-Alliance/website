@@ -1,0 +1,58 @@
+name: Sync meet-up dates from Luma
+
+# Reads the Luma calendar's iCal feed and updates the city cards in index.html.
+# Opens a pull request rather than pushing to main, so the change still gets a
+# maintainer's approval like any other. Run it by hand any time from the Actions tab.
+
+on:
+  schedule:
+    - cron: "17 13 * * *"      # daily, 13:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Update city cards from the calendar
+        id: sync
+        env:
+          ACA_ICS_URL: ${{ vars.ACA_ICS_URL }}     # optional override, set in Settings → Variables
+        run: |
+          python3 scripts/sync_events.py | tee /tmp/sync.log
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Validate the result
+        if: steps.sync.outputs.changed == 'true'
+        run: python3 scripts/check.py
+
+      - name: Open a pull request
+        if: steps.sync.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="sync-events"
+          git config user.name  "aca-bot"
+          git config user.email "actions@github.com"
+          git checkout -B "$BRANCH"
+          git add index.html
+          git commit -m "Sync meet-up dates from Luma"
+          git push --force origin "$BRANCH"
+          if [ -z "$(gh pr list --head "$BRANCH" --state open --json number --jq '.[].number')" ]; then
+            gh pr create \
+              --title "Sync meet-up dates from Luma" \
+              --body "$(printf 'Automated update of the city cards in \`index.html\` from the Luma calendar feed.\n\n```\n%s\n```\n\nVenue text, card order, and everything outside the status pill and date block are untouched. Review and merge, or close if a card should stay as it is.' "$(cat /tmp/sync.log)")" \
+              --base main --head "$BRANCH"
+          fi

@@ -16,6 +16,7 @@ index.html            The entire website — one plain, hand-editable HTML file
 code-of-conduct.html  Code of Conduct, rendered for the site
 assets/               Logos (alliance, members, hosts) and the hero event photo
 scripts/check.py      PR checks: HTML nesting, links, image size, asset naming
+scripts/sync_events.py  Updates the city cards from the Luma iCal feed
 .github/              Issue forms (list a city, add a member, add a host),
                       PR template, CODEOWNERS, and the "Site checks" workflow
 CODE_OF_CONDUCT.md    Community Code of Conduct (source)
@@ -80,7 +81,21 @@ Events are run on Luma. The site never stores registrations; it links out.
   | Date coming soon (venue secured) | `class="city"` + `<span class="status soon">` | `Get notified →` → follow the calendar |
   | Venue TBD | `class="city"` + `<span class="status">` | `Get notified →` → follow the calendar |
 
-- **To publish an event on a card:** create it on Luma, then on the card add class
+- **Automatic date updates.** `.github/workflows/sync-events.yml` runs daily (and on demand
+  from the Actions tab). It reads the calendar's iCal feed, flips a city card to
+  "Registration open" with the real date and Register button when that city has an upcoming
+  event, and drops it back to its resting state once the event passes. It opens a **pull
+  request** rather than pushing, so the change still gets an approval. Run it locally with
+  `python3 scripts/sync_events.py`, or `--check` to see whether the page is stale.
+  - Matching is by keyword: `CITY_TOKENS` at the top of the script maps each card's
+    `data-city` value to words that appear in the Luma event title or location. Add a token
+    there when a new city's event titles do not contain the card's name.
+  - The script only rewrites the status pill and the date/button block. Venue text, card
+    order, and the rest of the page are left as written, so hand edits survive.
+  - If the feed URL is wrong the script reports no events and changes nothing. Override it
+    with an `ACA_ICS_URL` repository variable (Settings → Secrets and variables → Actions →
+    Variables) taken from the calendar's Subscribe link.
+- **To publish an event on a card by hand:** create it on Luma, then on the card add class
   `live`, switch the pill to `status open`, set the date line, and give the Register
   button both the event URL (`href`, the no-JS fallback) and the event ID
   (`data-luma-event-id="evt-…"`). The event ID is under the event's
