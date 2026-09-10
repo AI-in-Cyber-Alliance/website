@@ -23,10 +23,10 @@ from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
 # Luma calendar iCal feed. Confirm from the calendar page's Subscribe / Add to Calendar link.
-ICS_URL = os.environ.get(
-    "ACA_ICS_URL",
-    "https://api.lu.ma/ics/get?entity=calendar&id=cal-PWZSiCpJoPE914l",
-)
+# `or` rather than a get() default: CI passes an empty string when the repository variable
+# is unset, and an empty string must fall back too.
+DEFAULT_ICS = "https://api.lu.ma/ics/get?entity=calendar&id=cal-PWZSiCpJoPE914l"
+ICS_URL = (os.environ.get("ACA_ICS_URL") or "").strip() or DEFAULT_ICS
 CALENDAR = "https://luma.com/aicyberalliance?utm_source=website"
 PAGE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "index.html")
 
@@ -44,9 +44,18 @@ CITY_TOKENS = {
 def fetch(path=None):
     if path:
         return open(path, encoding="utf-8").read()
+    if not ICS_URL.startswith(("http://", "https://")):
+        raise SystemExit("Feed URL looks wrong: %r. Set the ACA_ICS_URL repository variable "
+                         "to the calendar's Subscribe link." % ICS_URL)
+    print("Feed: %s" % ICS_URL)
     req = urllib.request.Request(ICS_URL, headers={"User-Agent": "ai-cyber-alliance-site"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return r.read().decode("utf-8", "replace")
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return r.read().decode("utf-8", "replace")
+    except Exception as e:
+        raise SystemExit("Could not read the calendar feed (%s). Nothing was changed. If the "
+                         "address is wrong, set the ACA_ICS_URL repository variable from the "
+                         "calendar's Subscribe link." % e)
 
 
 def parse_ics(text):
