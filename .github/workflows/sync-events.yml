@@ -12,6 +12,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  checks: write          # lets this job publish its own check run on the pushed commit
 
 jobs:
   sync:
@@ -36,10 +37,20 @@ jobs:
           fi
 
       - name: Validate the result
+        id: validate
         if: steps.sync.outputs.changed == 'true'
-        run: python3 scripts/check.py
+        run: |
+          set -o pipefail
+          if python3 scripts/check.py 2>&1 | tee /tmp/check.log; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "scripts/check.py failed; no pull request will be opened." >&2
+            exit 1
+          fi
 
       - name: Open a pull request
+        id: pr
         if: steps.sync.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -51,9 +62,39 @@ jobs:
           git add index.html
           git commit -m "Sync meet-up dates from Luma"
           git push --force origin "$BRANCH"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           if [ -z "$(gh pr list --head "$BRANCH" --state open --json number --jq '.[].number')" ]; then
             gh pr create \
               --title "Sync meet-up dates from Luma" \
               --body "$(printf 'Automated update of the city cards in \`index.html\` from the Luma calendar feed.\n\n```\n%s\n```\n\nVenue text, card order, and everything outside the status pill and date block are untouched. Review and merge, or close if a card should stay as it is.' "$(cat /tmp/sync.log)")" \
               --base main --head "$BRANCH"
           fi
+
+      # GitHub will not run this repo's "Site checks" workflow on the pull request
+      # this job opens: events raised by the built-in GITHUB_TOKEN do not start a
+      # workflow run, and the pull_request run that does get created is parked at
+      # "action_required" until a maintainer clicks Approve. A `push` trigger would
+      # not help either -- a GITHUB_TOKEN push raises no run at all. So report the
+      # validator's result ourselves, as a check run on the commit the PR is for.
+      - name: Report the check on the pushed commit
+        if: steps.sync.outputs.changed == 'true' && steps.pr.outputs.sha != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          jq -n \
+            --arg sha     "${{ steps.pr.outputs.sha }}" \
+            --arg concl   "success" \
+            --arg details "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --rawfile log /tmp/check.log \
+            '{
+               name:        "Site checks (sync)",
+               head_sha:    $sha,
+               status:      "completed",
+               conclusion:  $concl,
+               details_url: $details,
+               output: {
+                 title:   "scripts/check.py passed",
+                 summary: ("`scripts/check.py` ran against this commit in the sync job.\n\n```\n" + $log + "\n```")
+               }
+             }' \
+          | gh api -X POST "repos/${{ github.repository }}/check-runs" --input -
