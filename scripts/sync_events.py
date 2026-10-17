@@ -35,9 +35,24 @@ PAGE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
 CITY_TOKENS = {
     "Austin":         ["austin"],
     "Washington DC":  ["washington dc", "tysons", " dc:", " dc ", "vienna, va"],
+    # A one-off that happens to be in the Bay Area. It sits above SF Bay Area so the
+    # "menlo park" token below doesn't claim it and push the regular meet-up off the page.
+    "Agents hunting Agents": ["agents hunting agents"],
     "SF Bay Area":    ["bay area", "sf bay", "snowflake", "san jose", "santa clara", "menlo park"],
     "San Francisco":  ["san francisco"],
     "Boston":         ["boston", "cambridge, ma"],
+}
+
+# Luma's feed stamps every event in UTC with no TZID, so the feed alone cannot say what
+# time a city sees. Without this an evening meet-up renders in UTC and rolls onto the
+# next calendar day: Austin's 6pm CST start showed up as "Wed, Nov 11 · 12 AM UTC".
+CITY_TZ = {
+    "Austin":         "America/Chicago",
+    "Washington DC":  "America/New_York",
+    "Agents hunting Agents": "America/Los_Angeles",
+    "SF Bay Area":    "America/Los_Angeles",
+    "San Francisco":  "America/Los_Angeles",
+    "Boston":         "America/New_York",
 }
 
 
@@ -114,19 +129,34 @@ def next_events(events, now):
     return best
 
 
-def when_line(ev):
+# The trailing line inside <div class="when">. Cards that aren't a standard two-or-three
+# talks evening override it here; anything absent gets DEFAULT_BLURB.
+DEFAULT_BLURB = "Two to three talks, Q&amp;A, networking"
+CITY_BLURB = {
+    "Agents hunting Agents": "A half-day session: talks, Q&amp;A, networking",
+}
+
+
+def when_line(ev, city=None):
     start = to_dt(ev["DTSTART"])
     end = to_dt(ev["DTEND"]) if "DTEND" in ev else start + timedelta(hours=2)
-    local = ZoneInfo(ev["DTSTART"][1]) if ev["DTSTART"][1] else start.tzinfo
+    tzid = ev["DTSTART"][1] or CITY_TZ.get(city)
+    local = ZoneInfo(tzid) if tzid else start.tzinfo
     start, end = start.astimezone(local), end.astimezone(local)
 
     def clock(d):
         h = d.strftime("%I").lstrip("0") or "12"
-        return h + (":%s" % d.strftime("%M") if d.minute else "") + d.strftime(" %p").replace(" AM", " AM").replace(" PM", " PM")
+        return h + (":%s" % d.strftime("%M") if d.minute else "") + d.strftime(" %p")
 
     date = "%s, %s %d, %d" % (start.strftime("%a"), start.strftime("%b"), start.day, start.year)
-    times = "%s–%s %s" % (clock(start).replace(" AM", "").replace(" PM", ""), clock(end), start.strftime("%Z"))
-    return "<strong>%s</strong> · %s<br>Two to three talks, Q&amp;A, networking" % (date, times)
+    # "6–8 PM" reads better than "6 PM–8 PM", but only drop the opening meridiem when both
+    # ends share it: an 11 PM–1 AM range collapsed to "11–1 AM" says the wrong thing.
+    first = clock(start)
+    if start.strftime("%p") == end.strftime("%p"):
+        first = first.rsplit(" ", 1)[0]
+    times = "%s–%s %s" % (first, clock(end), start.strftime("%Z"))
+    blurb = CITY_BLURB.get(city, DEFAULT_BLURB)
+    return "<strong>%s</strong> · %s<br>%s" % (date, times, blurb)
 
 
 def event_url(ev):
@@ -170,7 +200,7 @@ def render(city, ev, venue_tbd=False):
         '        <div class="acts">\n'
         '          <a class="btn btn-primary btn-sm" href="%s" target="_blank" rel="noopener"%s>Register →</a>\n'
         '          <a class="more" href="%s" target="_blank" rel="noopener">Event details ↗</a>\n'
-        '        </div>' % (when_line(ev), url, attrs, url),
+        '        </div>' % (when_line(ev, city), url, attrs, url),
     )
 
 
