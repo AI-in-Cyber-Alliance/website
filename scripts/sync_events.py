@@ -35,9 +35,6 @@ PAGE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
 CITY_TOKENS = {
     "Austin":         ["austin"],
     "Washington DC":  ["washington dc", "tysons", " dc:", " dc ", "vienna, va"],
-    # A one-off that happens to be in the Bay Area. It sits above SF Bay Area so the
-    # "menlo park" token below doesn't claim it and push the regular meet-up off the page.
-    "Agents hunting Agents": ["agents hunting agents"],
     "SF Bay Area":    ["bay area", "sf bay", "snowflake", "san jose", "santa clara", "menlo park"],
     "San Francisco":  ["san francisco"],
     "Boston":         ["boston", "cambridge, ma"],
@@ -49,7 +46,6 @@ CITY_TOKENS = {
 CITY_TZ = {
     "Austin":         "America/Chicago",
     "Washington DC":  "America/New_York",
-    "Agents hunting Agents": "America/Los_Angeles",
     "SF Bay Area":    "America/Los_Angeles",
     "San Francisco":  "America/Los_Angeles",
     "Boston":         "America/New_York",
@@ -133,7 +129,6 @@ def next_events(events, now):
 # talks evening override it here; anything absent gets DEFAULT_BLURB.
 DEFAULT_BLURB = "Two to three talks, Q&amp;A, networking"
 CITY_BLURB = {
-    "Agents hunting Agents": "A half-day session: talks, Q&amp;A, networking",
 }
 
 
