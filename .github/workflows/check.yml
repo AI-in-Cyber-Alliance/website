@@ -1,4 +1,13 @@
 name: Site checks
+
+# Note: this workflow does not run on the automated "sync-events" pull request.
+# That PR is opened by the built-in GITHUB_TOKEN, and GitHub will not start a
+# workflow run for an event the token raised -- the pull_request run it creates
+# sits at "action_required" until a maintainer approves it, and a push trigger
+# on that branch would raise no run at all. The sync job therefore runs
+# scripts/check.py itself and posts the result as a "Site checks (sync)" check
+# run on the commit. See .github/workflows/sync-events.yml.
+
 on:
   pull_request:
   push:
