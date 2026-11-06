@@ -116,7 +116,7 @@ Events are run on Luma. The site never stores registrations; it links out.
 
 ### Everything else
 
-- **Forms.** Two Google Forms. Speaker proposals: `https://forms.gle/dih1br2x3Vrxh4fo6`.
+- **Forms.** Two Google Forms. Speaker proposals: `https://forms.gle/Mjvq269JVTRWcZjv8`.
   Hosting and new cities ("Get in touch", "Host us", "Your city"):
   `https://docs.google.com/forms/d/e/1FAIpQLSfZF3G4AfSoCuAK0vVwZnNinjJtrq1DSPBQqOhtVkXWKuuRHA/viewform`
   (fields: Email, City, Experience & fit).
