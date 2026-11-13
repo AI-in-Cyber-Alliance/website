@@ -139,6 +139,15 @@ strong{color:var(--ink)}
 .stat-card:hover{border-color:var(--pink)}   /* dark-card hover = Pulse Pink (poster tie-in) */
 .stat-card .big{font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--pink);margin-bottom:6px}   /* event highlights = pink */
 .stat-card .sub{font-size:13px;color:var(--ink-2);line-height:1.5}
+.formats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px}
+.format-card{padding:24px;background:var(--card);border:1px solid var(--line);border-radius:12px;transition:border-color .18s ease}
+.format-card:hover{border-color:var(--pink)}
+.format-card .big{font-family:var(--font-display);font-size:20px;font-weight:600;color:var(--pink);margin-bottom:4px}
+.format-card .dur{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-3);margin-bottom:12px}
+.format-card p{font-size:13.5px;color:var(--ink-2);line-height:1.6;margin:0 0 12px}
+.format-card ul{margin:0;padding-left:18px;font-size:13px;color:var(--ink-2);line-height:1.6}
+.format-card .byod{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3);line-height:1.55}
+.format-card .byod strong{color:var(--ink-2)}
 .chips{display:flex;flex-wrap:wrap;gap:9px;align-items:center}
 .chips .label{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-3);margin-right:4px}
 .chip{padding:8px 15px;background:var(--card);border:1px solid var(--line);border-radius:20px;font-size:13px;color:var(--ink-2)}
@@ -255,6 +264,7 @@ strong{color:var(--ink)}
   .footer nav{flex-wrap:wrap;gap:10px 22px}
   .hero-grid,.split,.cols-2{grid-template-columns:1fr;gap:32px}
   .grid-4{grid-template-columns:1fr 1fr}
+  .formats{grid-template-columns:1fr}
   .grid-3,.cards-3,.cities{grid-template-columns:1fr}
   .cal-embed iframe{height:340px}
   .pad{padding-top:56px;padding-bottom:56px}
@@ -330,6 +340,33 @@ strong{color:var(--ink)}
       <div class="stat-card"><div class="big">Q&amp;A</div><div class="sub">Real questions from the room</div></div>
       <div class="stat-card"><div class="big">Network</div><div class="sub">Time to meet each other</div></div>
       <div class="stat-card"><div class="big">Hosted</div><div class="sub">By startups &amp; tech companies</div></div>
+    </div>
+    <div class="subhead">MEETING FORMATS</div>
+    <div class="formats">
+      <div class="format-card">
+        <div class="big">Talk night</div>
+        <div class="dur">~2 hours · no laptop needed</div>
+        <p>Our standard evening: two focused technical talks, Q&amp;A, and time to meet each other.</p>
+      </div>
+      <div class="format-card">
+        <div class="big">Talk + hands-on lab</div>
+        <div class="dur">~2 hours · bring your device</div>
+        <p>A split session: one presentation, then one guided hands-on lab.</p>
+        <div class="byod"><strong>BYOD:</strong> bring a laptop with the environment set up in advance, or use the browser-based sandbox link shared before the event.</div>
+      </div>
+      <div class="format-card">
+        <div class="big">Full workshop</div>
+        <div class="dur">90–120 min · bring your device</div>
+        <p>Two presenters: a lead instructor and a facilitator working the room. Slides stay under 20% of the time.</p>
+        <ul>
+          <li>Welcome &amp; setup check</li>
+          <li>Guided foundation &amp; micro-demo</li>
+          <li>Hands-on build in 2–3 milestones</li>
+          <li>Debrief &amp; attendee showcase</li>
+          <li>Wrap-up, Q&amp;A &amp; resources</li>
+        </ul>
+        <div class="byod"><strong>BYOD:</strong> laptop with a pre-configured environment, or a cloud sandbox link provided beforehand. Open to developers and practitioners at all experience levels.</div>
+      </div>
     </div>
     <div class="chips" style="margin-bottom:48px">
       <span class="label">Cities:</span>
