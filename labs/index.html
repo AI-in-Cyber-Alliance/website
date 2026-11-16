@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agents Hunting Agents — Lab Materials — AI Cyber Alliance</title>
+<meta name="description" content="Hands-on cyber hunting lab package for Agents Hunting Agents workshops, open for anyone to practice and teach cyber hunting techniques.">
+<link rel="icon" type="image/svg+xml" href="../assets/aca-signet-pink.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500;600;700&family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --charcoal:#2B292A;
+  --offwhite:#EFEFEF;
+  --blue:#839CF8;
+  --pink:#EAA4A4;
+  --pink-strong:#F09E9E;
+  --magenta:#ED58F5;
+  --bg:var(--charcoal);
+  --ink:var(--offwhite);
+  --ink-2:rgba(239,239,239,.72);
+  --ink-3:rgba(239,239,239,.52);
+  --card:#343233;
+  --line:rgba(239,239,239,.14);
+  --font-display:'Atkinson Hyperlegible Next',sans-serif;
+  --font-body:'Atkinson Hyperlegible Mono',ui-monospace,monospace;
+  --font-mono:'Atkinson Hyperlegible Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+::selection{background:var(--magenta);color:var(--charcoal)}
+:focus-visible{outline:2px solid var(--magenta);outline-offset:3px;border-radius:3px}
+.header{
+  padding:32px 40px 16px;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+}
+.header .logo{
+  height:42px;
+  width:auto;
+  display:block;
+  filter:brightness(0) invert(1);
+}
+.wrap{
+  max-width:860px;
+  width:100%;
+  margin:0 auto;
+  padding:24px 32px 80px;
+  flex:1;
+}
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--pink-strong);
+  margin-bottom:14px;
+}
+h1{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:48px;
+  line-height:1.1;
+  letter-spacing:-.02em;
+  margin:0 0 20px;
+}
+.lead{
+  font-size:17.5px;
+  line-height:1.6;
+  color:var(--ink-2);
+  margin-bottom:32px;
+}
+.download-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:28px 32px;
+  margin-bottom:32px;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.file-info .file-name{
+  font-family:var(--font-mono);
+  font-size:18px;
+  font-weight:600;
+  color:var(--ink);
+}
+.file-info .file-meta{
+  font-size:13px;
+  color:var(--ink-3);
+  margin-top:4px;
+}
+.btn{
+  border-radius:9px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+  padding:14px 26px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition:box-shadow .18s ease,border-color .18s ease,background .18s ease;
+}
+.btn-primary{
+  background:var(--blue);
+  color:var(--charcoal);
+  border:1.5px solid transparent;
+}
+.btn-primary:hover{
+  background:var(--blue);
+  box-shadow:0 6px 22px -6px rgba(237,88,245,.62);
+}
+.note-callout{
+  padding:22px 26px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-left:4px solid var(--pink);
+  border-radius:12px;
+  margin-bottom:36px;
+}
+.note-callout .note-title{
+  font-family:var(--font-mono);
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--pink-strong);
+  margin-bottom:8px;
+  font-weight:600;
+}
+.note-callout p{
+  margin:0;
+  font-size:15px;
+  line-height:1.65;
+  color:var(--ink-2);
+}
+.description-section{
+  margin-top:20px;
+}
+.description-section h2{
+  font-family:var(--font-display);
+  font-size:24px;
+  font-weight:600;
+  letter-spacing:-.015em;
+  margin:0 0 16px;
+  color:var(--ink);
+}
+.description-section p{
+  font-size:15.5px;
+  line-height:1.7;
+  color:var(--ink-2);
+  margin:0 0 16px;
+}
+.description-section ul{
+  margin:0 0 24px;
+  padding-left:24px;
+}
+.description-section li{
+  font-size:15px;
+  line-height:1.65;
+  color:var(--ink-2);
+  margin-bottom:10px;
+}
+.description-section li strong{
+  color:var(--ink);
+}
+@media (max-width: 600px) {
+  .header{padding:24px 20px 8px}
+  .wrap{padding:20px 20px 60px}
+  h1{font-size:36px}
+  .download-card{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <img class="logo" src="../assets/aca-logo-black.png" alt="AI Cyber Alliance">
+</header>
+
+<main class="wrap">
+  <div class="eyebrow">Lab Package</div>
+  <h1>Agents Hunting Agents</h1>
+  <p class="lead">
+    Hands-on cyber hunting scenarios exploring detection, telemetry analysis, and incident investigation in environments utilizing AI agents and modern automation.
+  </p>
+
+  <div class="download-card">
+    <div class="file-info">
+      <div class="file-name">agents-hunting-agents.zip</div>
+      <div class="file-meta">ZIP archive · ~1.2 MB · Includes all scenarios &amp; tools</div>
+    </div>
+    <a class="btn btn-primary" href="agents-hunting-agents.zip" download>Download ZIP →</a>
+  </div>
+
+  <div class="note-callout">
+    <div class="note-title">Workshop &amp; Educational Use</div>
+    <p>
+      This package is designed for <strong>Agents Hunting Agents</strong> workshops hosted by the AI Cyber Alliance. It is also openly available for community members, educators, and security practitioners to teach, practice, and learn hands-on cyber hunting techniques.
+    </p>
+  </div>
+
+  <section class="description-section">
+    <h2>What's Included</h2>
+    <p>
+      The archive contains realistic, fictionalized investigation datasets complete with multi-source telemetry, scenario briefings, network maps, and investigation clues:
+    </p>
+    <ul>
+      <li><strong>6 Hands-On Scenarios:</strong> Self-contained incident investigations ranging from credential exposure and compromised MCP tooling to malicious agent behavior and rogue service impersonation.</li>
+      <li><strong>Diverse Telemetry:</strong> Multi-layer log artifacts including Zeek logs (DNS, HTTP, Conn, SSL), internal DNS queries, host EDR event streams (JSONL), firewall logs, NetFlow CSV records, and application audit trails.</li>
+      <li><strong>Investigation Artifacts:</strong> Architecture diagrams, network maps, asset inventories, support tickets, and scenario briefings.</li>
+      <li><strong>Timeline Correlation Tool:</strong> A standalone Python utility (<code>tools/timeline.py</code>) that parses and merges multi-format logs into chronological order with timezone-aware alignment.</li>
+    </ul>
+  </section>
+</main>
+
+</body>
+</html>
