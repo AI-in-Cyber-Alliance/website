@@ -132,11 +132,20 @@ CITY_BLURB = {
 }
 
 
+def city_zone(ev, city):
+    tzid = ev["DTSTART"][1] or CITY_TZ.get(city)
+    return ZoneInfo(tzid) if tzid else ZoneInfo("UTC")
+
+
+def local_start(ev, city):
+    """Event start in the city's own time zone (the feed is UTC; see CITY_TZ)."""
+    return to_dt(ev["DTSTART"]).astimezone(city_zone(ev, city))
+
+
 def when_line(ev, city=None):
     start = to_dt(ev["DTSTART"])
     end = to_dt(ev["DTEND"]) if "DTEND" in ev else start + timedelta(hours=2)
-    tzid = ev["DTSTART"][1] or CITY_TZ.get(city)
-    local = ZoneInfo(tzid) if tzid else start.tzinfo
+    local = city_zone(ev, city)
     start, end = start.astimezone(local), end.astimezone(local)
 
     def clock(d):
@@ -208,6 +217,24 @@ CARD = re.compile(
 )
 
 
+WHEN_BLURB = re.compile(r'(<div class="when">.*?<br>)(.*?)(</div>)', re.S)
+REGISTER_HREF = re.compile(r'<a class="btn btn-primary[^"]*" href="([^"]+)"')
+
+
+def keep_blurb(old_tail, new_tail):
+    """Keep a hand-written description when the card still points at the same event.
+
+    The generated tail always carries DEFAULT_BLURB (or CITY_BLURB). Without this, every
+    run overwrote descriptions like "Speakers to be announced" with the generic line.
+    A new event, or a card falling back to its resting state, still gets the fresh text.
+    """
+    old_href, new_href = REGISTER_HREF.search(old_tail), REGISTER_HREF.search(new_tail)
+    old_blurb = WHEN_BLURB.search(old_tail)
+    if not (old_href and new_href and old_blurb) or old_href.group(1) != new_href.group(1):
+        return new_tail
+    return WHEN_BLURB.sub(lambda m: m.group(1) + old_blurb.group(2) + m.group(3), new_tail, count=1)
+
+
 def apply(html, upcoming):
     changed = []
 
@@ -215,6 +242,7 @@ def apply(html, upcoming):
         city = m.group("city")
         middle = m.group("middle").rstrip()
         opening, status, tail = render(city, upcoming.get(city), venue_tbd='class="tbd"' in middle)
+        tail = keep_blurb(m.group("tail"), tail)
         new = "%s\n        %s\n%s\n        %s\n      </div>" % (opening, status, middle, tail)
         if new != m.group(0):
             changed.append(city)
@@ -237,7 +265,7 @@ def main():
     html = open(PAGE, encoding="utf-8").read()
     new, changed = apply(html, upcoming)
 
-    listed = ", ".join("%s → %s" % (c, to_dt(e["DTSTART"]).strftime("%b %d")) for c, e in sorted(upcoming.items()))
+    listed = ", ".join("%s → %s" % (c, local_start(e, c).strftime("%b %d")) for c, e in sorted(upcoming.items()))
     print("Upcoming on Luma: %s" % (listed or "none"))
     if not changed:
         print("Cards already match the calendar.")
